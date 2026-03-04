@@ -68,6 +68,52 @@ function App() {
               <Hero onViewPortfolio={() => scrollToSection("portfolio")} />
               <About setActiveSection={setActiveSection} />
               <Portfolio setActiveSection={setActiveSection} />
+              <Stats setActiveSection={setActiveSection} />
+              <Brands />
+              <Contact />
+            </main>
+          </PageFade>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+export default App;
+
+function App() {
+  const [activeSection, setActiveSection] = useState("hero");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({
+      top: y,
+      behavior: "smooth"
+    });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-rich-black to-black text-white">
+      <ScrollProgress />
+      <Navbar
+        activeSection={activeSection}
+        onNavClick={scrollToSection}
+        onLogoClick={() => scrollToSection("hero")}
+      />
+      <AnimatePresence mode="wait">
+        {mounted && (
+          <PageFade key="main">
+            <main className="flex flex-col gap-32 pb-24">
+              <Hero onViewPortfolio={() => scrollToSection("portfolio")} />
+              <About setActiveSection={setActiveSection} />
+              <Portfolio setActiveSection={setActiveSection} />
               <Stats />
               <Brands />
               <Contact />
