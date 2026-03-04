@@ -63,9 +63,11 @@ function Hero({ onViewPortfolio }) {
               transition={{ delay: 0.4, duration: 0.7 }}
               className="max-w-xl text-sm text-white/70 sm:text-base"
             >
-              Nairobi-born, runway-bred, and editorial-obsessed. Chantelle
-              Angel Mwangi brings an unmistakable presence to every frame – from
-              precision beauty shots to cinematic campaign stories.
+              Nairobi-born, runway-bred, and editorial-obsessed. Chantelle Angel
+              Mwangi brings an unmistakable presence to every frame – from
+              precision beauty shots to cinematic campaign stories for brands
+              like iPhone Centre Nairobi, Prime Phones, Tech Smart, Home 254,
+              Habibi London and Power Focus.
             </motion.p>
 
             <motion.div
